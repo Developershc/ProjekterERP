@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E4CA5BA-00A1-43DF-9C37-2E4580A622C5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Projekter_ERP.My.MyApplication</StartupObject>
+    <RootNamespace>Projekter_ERP</RootNamespace>
+    <AssemblyName>Projekter ERP</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Projekter ERP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Projekter ERP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Final.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConexaoBanco.vb" />
+    <Compile Include="POSTERIOR\Aguardar\frmGerarPedido.Designer.vb">
+      <DependentUpon>frmGerarPedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmGerarPedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Com Banco\frmMessageBox.Designer.vb">
+      <DependentUpon>frmMessageBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Com Banco\frmMessageBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmPedidosCV.Designer.vb">
+      <DependentUpon>frmPedidosCV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmPedidosCV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmLocalizar.Designer.vb">
+      <DependentUpon>frmLocalizar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmLocalizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmES.Designer.vb">
+      <DependentUpon>frmES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmQuadro.Designer.vb">
+      <DependentUpon>frmQuadro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmQuadro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmImpostos.Designer.vb">
+      <DependentUpon>frmImpostos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmImpostos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmConsumos.Designer.vb">
+      <DependentUpon>frmConsumos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmConsumos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmEA.Designer.vb">
+      <DependentUpon>frmEA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmEA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmEI.Designer.vb">
+      <DependentUpon>frmEI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmEI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmOrcamento.Designer.vb">
+      <DependentUpon>frmOrcamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmOrcamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Terminar\frmCNC.Designer.vb">
+      <DependentUpon>frmCNC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Terminar\frmCNC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComparados.Designer.vb">
+      <DependentUpon>frmComparados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmComparados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar Código de Banco\frmConsumivel.Designer.vb">
+      <DependentUpon>frmConsumivel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar Código de Banco\frmConsumivel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmValores.Designer.vb">
+      <DependentUpon>frmValores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmValores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmSM.Designer.vb">
+      <DependentUpon>frmSM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmSM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmProcessosFabr.Designer.vb">
+      <DependentUpon>frmProcessosFabr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Aguardar\frmProcessosFabr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmFuncionario.Designer.vb">
+      <DependentUpon>frmFuncionario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POSTERIOR\Verificar\frmFuncionario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VERIFICAR ALTERACOES\frmMaterial.Designer.vb">
+      <DependentUpon>frmMaterial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VERIFICAR ALTERACOES\frmMaterial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManutencao.Designer.vb">
+      <DependentUpon>frmManutencao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManutencao.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OK\frmSobre.Designer.vb">
+      <DependentUpon>frmSobre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OK\frmSobre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="VERIFICAR ALTERACOES\frmCadastroEF.Designer.vb">
+      <DependentUpon>frmCadastroEF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VERIFICAR ALTERACOES\frmCadastroEF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMP.Designer.vb">
+      <DependentUpon>frmMP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicial.Designer.vb">
+      <DependentUpon>frmInicial.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPeca.Designer.vb">
+      <DependentUpon>frmPeca.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPeca.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OK\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OK\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="OK\SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OK\SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmGerarPedido.resx">
+      <DependentUpon>frmGerarPedido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Com Banco\frmMessageBox.resx">
+      <DependentUpon>frmMessageBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmPedidosCV.resx">
+      <DependentUpon>frmPedidosCV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmLocalizar.resx">
+      <DependentUpon>frmLocalizar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmES.resx">
+      <DependentUpon>frmES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Verificar\frmQuadro.resx">
+      <DependentUpon>frmQuadro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Verificar\frmImpostos.resx">
+      <DependentUpon>frmImpostos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Verificar\frmConsumos.resx">
+      <DependentUpon>frmConsumos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmEA.resx">
+      <DependentUpon>frmEA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmEI.resx">
+      <DependentUpon>frmEI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmOrcamento.resx">
+      <DependentUpon>frmOrcamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Terminar\frmCNC.resx">
+      <DependentUpon>frmCNC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComparados.resx">
+      <DependentUpon>frmComparados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Verificar Código de Banco\frmConsumivel.resx">
+      <DependentUpon>frmConsumivel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValores.resx">
+      <DependentUpon>frmValores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Verificar\frmSM.resx">
+      <DependentUpon>frmSM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Aguardar\frmProcessosFabr.resx">
+      <DependentUpon>frmProcessosFabr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSTERIOR\Verificar\frmFuncionario.resx">
+      <DependentUpon>frmFuncionario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VERIFICAR ALTERACOES\frmMaterial.resx">
+      <DependentUpon>frmMaterial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManutencao.resx">
+      <DependentUpon>frmManutencao.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OK\frmSobre.resx">
+      <DependentUpon>frmSobre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VERIFICAR ALTERACOES\frmCadastroEF.resx">
+      <DependentUpon>frmCadastroEF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMP.resx">
+      <DependentUpon>frmMP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicial.resx">
+      <DependentUpon>frmInicial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPeca.resx">
+      <DependentUpon>frmPeca.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OK\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="OK\SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6940_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2951_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8396_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11769_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11983_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circular-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\three-gears-of-configuration-tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maths-class-materials-cross-of-a-pencil-and-a-ruler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivered-box-verification-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery-packages-on-a-trolley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-door-key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basic-tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forbidden-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-button %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-button %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-button %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commerce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-sale-agreement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator-and-dollar-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.10.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 R2 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Final.ico" />
+    <None Include="Resources\buildings.png" />
+    <None Include="Resources\carpenter %281%29.png" />
+    <None Include="Resources\carpenter.png" />
+    <None Include="Resources\house-sale-agreement1.png" />
+    <None Include="Resources\money-stacks-of-coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="POSTERIOR\Fazer DataGrid\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
