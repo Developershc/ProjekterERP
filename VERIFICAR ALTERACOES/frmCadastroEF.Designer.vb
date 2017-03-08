@@ -40,11 +40,13 @@ Partial Class frmCadastroEF
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox7)
@@ -133,7 +135,7 @@ Partial Class frmCadastroEF
         '
         Me.TextBox1.Location = New System.Drawing.Point(83, 25)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(497, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(413, 20)
         Me.TextBox1.TabIndex = 1
         '
         'Label7
@@ -199,6 +201,15 @@ Partial Class frmCadastroEF
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Razão Social:"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(502, 25)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(78, 20)
+        Me.Button2.TabIndex = 16
+        Me.Button2.Text = "Localizar"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmCadastroEF
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -230,4 +241,5 @@ Partial Class frmCadastroEF
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

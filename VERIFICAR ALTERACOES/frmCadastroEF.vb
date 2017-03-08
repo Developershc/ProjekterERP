@@ -97,37 +97,57 @@
             frmMessageBox.Show()
         End If
     End Sub
-#End Region 'VERIFICAR
+#End Region
 
 #Region "Alterar Dados"
     Private Sub AlterarDados()
         If Me.Text = "Cadastro da empresa" Then
-            'Try
-            'Conectar()
-            'Iniciar()
-            'Comandar("UPDATE TBEMPRESAS SET RAZAOSOCIAL = '" & frmCadastroEF.TextBox1.Text & "', ENDERECO = '" & frmCadastroEF.TextBox2.Text & "', CIDADE = '" & frmCadastroEF.TextBox3.Text & "', ESTADO = '" & frmCadastroEF.TextBox4.Text & "', TELEFONE = '" & frmCadastroEF.TextBox6.Text & "', CEP = '" & frmCadastroEF.TextBox5.Text & "', CNPJ = '" & frmCadastroEF.TextBox7.Text & "' WHERE RAZAOSOCIAL = '" & frmCadastroEF.TextBox1.Text & "'")
-            'Executar()
-            'Fechar()
-            Me.Close()
-            MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'Catch ex As Exception
-            'MessageBox.Show(ex.Message)
-            'End Try
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT RAZAOSOCIAL FROM TB_EMPRESAS WHERE RAZAOSOCIAL = '" & TextBox1.Text & "'")
+                Ler()
+                While leitura.Read
+                    Try
+                        Conectar()
+                        Iniciar()
+                        Comandar("UPDATE TB_EMPRESAS SET RAZAOSOCIAL = '" & TextBox1.Text & "', ENDERECO = '" & TextBox2.Text & "', CIDADE = '" & TextBox3.Text & "', ESTADO = '" & TextBox4.Text & "', TELEFONE = '" & TextBox6.Text & "', CEP = '" & TextBox5.Text & "', CNPJ = '" & TextBox7.Text & "' WHERE RAZAOSOCIAL = '" & leitura("RAZAOSOCIAL") & "'")
+                        Executar()
+                        Fechar()
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+                End While
+                Me.Close()
+                MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
         ElseIf Me.Text = "Fornecedor" Then
-            'Try
-            'Conectar()
-            'Iniciar()
-            'Comandar("UPDATE TBFORNECEDORES SET RAZAOSOCIAL = '" & frmCadastroEF.TextBox1.Text & "', ENDERECO = '" & frmCadastroEF.TextBox2.Text & "', CIDADE = '" & frmCadastroEF.TextBox3.Text & "', ESTADO = '" & frmCadastroEF.TextBox4.Text & "', TELEFONE = '" & frmCadastroEF.TextBox6.Text & "', CEP = '" & frmCadastroEF.TextBox5.Text & "', CNPJ = '" & frmCadastroEF.TextBox7.Text & "' WHERE RAZAOSOCIAL = '" & frmCadastroEF.TextBox1.Text & "'")
-            'Executar()
-            'Fechar()
-            Me.Close()
-            MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'Catch ex As Exception
-            'MessageBox.Show(ex.Message)
-            'End Try
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT RAZAOSOCIAL FROM TB_FORNECEDORES WHERE RAZAOSOCIAL = '" & TextBox1.Text & "'")
+                Ler()
+                While leitura.Read
+                    Try
+                        Conectar()
+                        Iniciar()
+                        Comandar("UPDATE TB_FORNECEDORES SET RAZAOSOCIAL = '" & TextBox1.Text & "', ENDERECO = '" & TextBox2.Text & "', CIDADE = '" & TextBox3.Text & "', ESTADO = '" & TextBox4.Text & "', TELEFONE = '" & TextBox6.Text & "', CEP = '" & TextBox5.Text & "', CNPJ = '" & TextBox7.Text & "' WHERE RAZAOSOCIAL = '" & leitura("RAZAOSOCIAL") & "'")
+                        Executar()
+                        Fechar()
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+                End While
+                Me.Close()
+                MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
         End If
     End Sub
-#End Region 'VERIFICAR
+#End Region
 
 #Region "Exibição de Dados"
     Private Sub frmCadastroEF_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -158,6 +178,12 @@
                 TextBox1.Focus()
             End Try
         End If
+    End Sub
+#End Region
+
+#Region "Localizar"
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        frmLocalizar.Show()
     End Sub
 #End Region
 

@@ -1,7 +1,5 @@
 ﻿Public Class frmMaterial
 
-    'A lista deve ser carregada a partir do Grupo de Material/Tipo/Qualidade escolhida.
-
     Dim medida As Decimal
     Dim medidaprinc As Decimal
 
@@ -215,7 +213,7 @@
         Try
             Conectar()
             Iniciar()
-            Comandar("SELECT NOMEMATERIAL FROM TB_MATERIAIS")
+            Comandar("SELECT NOMEMATERIAL FROM TB_MATERIAIS WHERE NOMEGRUPOMAT = '" & ComboBox1.Text & "' AND NOMEQUALIDADE = '" & ComboBox2.Text & "' AND NOMETIPO = '" & ComboBox3.Text & "'")
             Ler()
             Dim resultado As Boolean = leitura.HasRows
             If resultado = True Then
@@ -255,12 +253,22 @@
         Try
             Conectar()
             Iniciar()
+            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox4.Text & "'")
+            Ler()
+            While leitura.Read
+                ListBox3.Items.Add(leitura("NOMEQUALIDADE"))
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Try
+            Conectar()
+            Iniciar()
             Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES")
             Ler()
             Dim resultado As Boolean = leitura.HasRows
             If resultado = True Then
                 While leitura.Read
-                    ListBox3.Items.Add(leitura("NOMEQUALIDADE"))
                     ComboBox5.Items.Add(leitura("NOMEQUALIDADE"))
                     ComboBox2.Items.Add(leitura("NOMEQUALIDADE"))
                 End While
@@ -276,12 +284,22 @@
         Try
             Conectar()
             Iniciar()
+            Comandar("SELECT NOMETIPO FROM TB_TIPOS WHERE NOMEGRUPOMAT = '" & ComboBox6.Text & "' AND NOMEQUALIDADE = '" & ComboBox5.Text & "'")
+            Ler()
+            While leitura.Read
+                ListBox4.Items.Add(leitura("NOMETIPO"))
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Try
+            Conectar()
+            Iniciar()
             Comandar("SELECT NOMETIPO FROM TB_TIPOS")
             Ler()
             Dim resultado As Boolean = leitura.HasRows
             If resultado = True Then
                 While leitura.Read
-                    ListBox4.Items.Add(leitura("NOMETIPO"))
                     ComboBox3.Items.Add(leitura("NOMETIPO"))
                 End While
             Else
@@ -296,6 +314,7 @@
 
 #Region "Seleção/Alteração de Grupos de Material"
     Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
+        'TEXTBOX ALL READONLY
         Try
             Conectar()
             Iniciar()
@@ -309,11 +328,14 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        RemoveHandler Button4.Click, AddressOf Button4_Click
+        AddHandler Button4.Click, AddressOf AlterarDadosGrupo
     End Sub
-#End Region
+#End Region 'TEXTBOX
 
 #Region "Seleção/Alteração de Qualidade"
     Private Sub ListBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox3.SelectedIndexChanged
+        'TEXTBOX ALL READONLY
         Try
             Conectar()
             Iniciar()
@@ -334,11 +356,14 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        RemoveHandler Button4.Click, AddressOf Button4_Click
+        AddHandler Button4.Click, AddressOf AlterarDadosQualidade
     End Sub
-#End Region
+#End Region 'TEXTBOX
 
 #Region "Seleção/Alteração de Tipo"
     Private Sub ListBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox4.SelectedIndexChanged
+        'TEXTBOX ALL READONLY
         Try
             Conectar()
             Iniciar()
@@ -361,8 +386,10 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        RemoveHandler Button4.Click, AddressOf Button4_Click
+        AddHandler Button4.Click, AddressOf AlterarDadosTipo
     End Sub
-#End Region
+#End Region 'TEXTBOX
 
 #Region "Alteração de Material"
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -1221,7 +1248,7 @@
         frmMessageBox.Label1.Text = "Você deseja excluir esses dados ou cancelar a operação?"
         frmMessageBox.Show()
     End Sub
-#End Region 'VERIFICAR
+#End Region
 
 #Region "Botão Vermelho - Qualidade"
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -1231,7 +1258,7 @@
         frmMessageBox.Label1.Text = "Você deseja excluir esses dados ou cancelar a operação?"
         frmMessageBox.Show()
     End Sub
-#End Region 'VERIFICAR
+#End Region
 
 #Region "Botão Vermelho - Tipo"
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
@@ -1241,7 +1268,7 @@
         frmMessageBox.Label1.Text = "Você deseja excluir esses dados ou cancelar a operação?"
         frmMessageBox.Show()
     End Sub
-#End Region 'VERIFICAR
+#End Region
 
 #Region "Botão Vermelho - Material"
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -1251,51 +1278,48 @@
         frmMessageBox.Label1.Text = "Você deseja excluir esses dados ou cancelar a operação?"
         frmMessageBox.Show()
     End Sub
-#End Region 'VERIFICAR
+#End Region
 
 #Region "TextBoxes Editáveis"
     Private Sub TextBox8_Click(sender As Object, e As EventArgs) Handles TextBox8.Click
-        'TextBox8.ReadOnly = False
+        TextBox8.ReadOnly = False
     End Sub
 
     Private Sub TextBox9_Click(sender As Object, e As EventArgs) Handles TextBox9.Click
-        'TextBox9.ReadOnly = False
+        TextBox9.ReadOnly = False
     End Sub
 
     Private Sub TextBox10_Click(sender As Object, e As EventArgs) Handles TextBox10.Click
-        'TextBox10.ReadOnly = False
+        TextBox10.ReadOnly = False
     End Sub
 
     Private Sub TextBox6_Click(sender As Object, e As EventArgs) Handles TextBox6.Click
-        'TextBox6.ReadOnly = False
+        TextBox6.ReadOnly = False
     End Sub
 
     Private Sub TextBox1_Click(sender As Object, e As EventArgs) Handles TextBox1.Click
-        'TextBox1.ReadOnly = False
+        TextBox1.ReadOnly = False
     End Sub
 
     Private Sub TextBox2_Click(sender As Object, e As EventArgs) Handles TextBox2.Click
-        'TextBox2.ReadOnly = False
+        TextBox2.ReadOnly = False
     End Sub
 
     Private Sub TextBox3_Click(sender As Object, e As EventArgs) Handles TextBox3.Click
-        'TextBox3.ReadOnly = False
+        TextBox3.ReadOnly = False
     End Sub
 
     Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles TextBox4.Click
-        'TextBox4.ReadOnly = False
+        TextBox4.ReadOnly = False
     End Sub
 
     Private Sub TextBox5_Click(sender As Object, e As EventArgs) Handles TextBox5.Click
-        'TextBox5.ReadOnly = False
+        TextBox5.ReadOnly = False
     End Sub
 
     Private Sub TextBox7_Click(sender As Object, e As EventArgs) Handles TextBox7.Click
-        'TextBox7.ReadOnly = False
+        TextBox7.ReadOnly = False
     End Sub
-#End Region 'VERIFICAR
-
-    'RemoveHandler Button4.Click, AddressOf Button4_Click
-    'AddHandler Button4.Click, AddressOf AlterarDadosGrupo
+#End Region
 
 End Class
