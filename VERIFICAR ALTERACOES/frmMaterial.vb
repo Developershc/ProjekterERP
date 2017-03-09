@@ -207,28 +207,9 @@
     End Sub
 #End Region
 
-#Region "Carregar Listas e Combos"
+#Region "Carregar Combos"
     Private Sub frmMaterial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ListBox1.Items.Clear()
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEMATERIAL FROM TB_MATERIAIS WHERE NOMEGRUPOMAT = '" & ComboBox1.Text & "' AND NOMEQUALIDADE = '" & ComboBox2.Text & "' AND NOMETIPO = '" & ComboBox3.Text & "'")
-            Ler()
-            Dim resultado As Boolean = leitura.HasRows
-            If resultado = True Then
-                While leitura.Read
-                    ListBox1.Items.Add(leitura("NOMEMATERIAL"))
-                End While
-            Else
-                MessageBox.Show("Ainda não há materiais cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ListBox1.Items.Add("Não há materiais cadastrados!")
-            End If
-            Fechar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        'ListBox2.Items.Clear()
+        ListBox2.Items.Clear()
         Try
             Conectar()
             Iniciar()
@@ -238,60 +219,36 @@
             If resultado = True Then
                 While leitura.Read
                     ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
+                End While
+            Else
+                MessageBox.Show("Ainda não há grupos de material cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ListBox2.Items.Add("Não há grupos de material cadastrados!")
+            End If
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+            Ler()
+            Dim resultado As Boolean = leitura.HasRows
+            If resultado = True Then
+                While leitura.Read
                     ComboBox4.Items.Add(leitura("NOMEGRUPOMAT"))
                     ComboBox6.Items.Add(leitura("NOMEGRUPOMAT"))
                     ComboBox1.Items.Add(leitura("NOMEGRUPOMAT"))
                 End While
             Else
                 MessageBox.Show("Ainda não há grupos de material cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ListBox2.Items.Add("Não há grupos de material cadastrados!")
             End If
             Fechar()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-        ListBox3.Items.Clear()
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox4.Text & "'")
-            Ler()
-            While leitura.Read
-                ListBox3.Items.Add(leitura("NOMEQUALIDADE"))
-            End While
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES")
-            Ler()
-            Dim resultado As Boolean = leitura.HasRows
-            If resultado = True Then
-                While leitura.Read
-                    ComboBox5.Items.Add(leitura("NOMEQUALIDADE"))
-                    ComboBox2.Items.Add(leitura("NOMEQUALIDADE"))
-                End While
-            Else
-                MessageBox.Show("Ainda não há qualidades cadastradas!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ListBox3.Items.Add("Não há qualidade cadastradas!")
-            End If
-            Fechar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        ListBox4.Items.Clear()
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMETIPO FROM TB_TIPOS WHERE NOMEGRUPOMAT = '" & ComboBox6.Text & "' AND NOMEQUALIDADE = '" & ComboBox5.Text & "'")
-            Ler()
-            While leitura.Read
-                ListBox4.Items.Add(leitura("NOMETIPO"))
-            End While
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        
         Try
             Conectar()
             Iniciar()
@@ -314,16 +271,14 @@
 
 #Region "Seleção/Alteração de Grupos de Material"
     Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
-        'TEXTBOX ALL READONLY
+        TextBox8.ReadOnly = True
         Try
             Conectar()
             Iniciar()
             Comandar("SELECT NOMEGRUPOMAT, CAMINHOIMGGRUPOMAT FROM TB_GRUPOSMAT WHERE NOMEGRUPOMAT = '" & ListBox2.SelectedItem & "'")
             Ler()
-            While leitura.Read
-                TextBox8.Text = leitura("NOMEGRUPOMAT")
-                PictureBox1.Image = Image.FromFile(leitura("CAMINHOIMGGRUPOMAT"))
-            End While
+            TextBox8.Text = leitura("NOMEGRUPOMAT")
+            PictureBox1.Image = Image.FromFile(leitura("CAMINHOIMGGRUPOMAT"))
             Fechar()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -331,11 +286,11 @@
         RemoveHandler Button4.Click, AddressOf Button4_Click
         AddHandler Button4.Click, AddressOf AlterarDadosGrupo
     End Sub
-#End Region 'TEXTBOX
+#End Region 'TESTAR
 
 #Region "Seleção/Alteração de Qualidade"
     Private Sub ListBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox3.SelectedIndexChanged
-        'TEXTBOX ALL READONLY
+        TextBox9.ReadOnly = True
         Try
             Conectar()
             Iniciar()
@@ -359,11 +314,11 @@
         RemoveHandler Button4.Click, AddressOf Button4_Click
         AddHandler Button4.Click, AddressOf AlterarDadosQualidade
     End Sub
-#End Region 'TEXTBOX
+#End Region 'TESTAR
 
 #Region "Seleção/Alteração de Tipo"
     Private Sub ListBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox4.SelectedIndexChanged
-        'TEXTBOX ALL READONLY
+        TextBox10.ReadOnly = True
         Try
             Conectar()
             Iniciar()
@@ -389,9 +344,9 @@
         RemoveHandler Button4.Click, AddressOf Button4_Click
         AddHandler Button4.Click, AddressOf AlterarDadosTipo
     End Sub
-#End Region 'TEXTBOX
+#End Region 'TESTAR
 
-#Region "Alteração de Material"
+#Region "Seleção/Alteração de Material"
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         TextBox6.ReadOnly = True
         TextBox1.ReadOnly = True
@@ -1319,6 +1274,221 @@
 
     Private Sub TextBox7_Click(sender As Object, e As EventArgs) Handles TextBox7.Click
         TextBox7.ReadOnly = False
+    End Sub
+#End Region
+
+#Region "Verificação de Dados"
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        If TabControl1.SelectedIndex = 0 Then
+            ListBox2.Items.Clear()
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                Ler()
+                Dim resultado As Boolean = leitura.HasRows
+                If resultado = True Then
+                    While leitura.Read
+                        ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
+                    End While
+                Else
+                    MessageBox.Show("Ainda não há grupos de material cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ListBox2.Items.Add("Não há grupos de material cadastrados!")
+                End If
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf TabControl1.SelectedIndex = 1 Then
+            ListBox3.Items.Clear()
+            ComboBox4.Items.Clear()
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                Ler()
+                While leitura.Read
+                    ComboBox4.Items.Add(leitura("NOMEGRUPOMAT"))
+                End While
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES")
+                Ler()
+                Dim resultado As Boolean = leitura.HasRows
+                If resultado = False Then
+                    MessageBox.Show("Ainda não há qualidades cadastradas!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ListBox1.Items.Add("Não há qualidades cadastradas!")
+                End If
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf TabControl1.SelectedIndex = 2 Then
+            ListBox4.Items.Clear()
+            ComboBox6.Items.Clear()
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                Ler()
+                While leitura.Read
+                    ComboBox6.Items.Add(leitura("NOMEGRUPOMAT"))
+                End While
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMETIPO FROM TB_TIPOS")
+                Ler()
+                Dim resultado As Boolean = leitura.HasRows
+                If resultado = False Then
+                    MessageBox.Show("Ainda não há tipos cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ListBox1.Items.Add("Não há tipos cadastrados!")
+                End If
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        ElseIf TabControl1.SelectedIndex = 3 Then
+            ListBox1.Items.Clear()
+            ComboBox1.Items.Clear()
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                Ler()
+                While leitura.Read
+                    ComboBox1.Items.Add(leitura("NOMEGRUPOMAT"))
+                End While
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEMATERIAL FROM TB_MATERIAIS")
+                Ler()
+                Dim resultado As Boolean = leitura.HasRows
+                If resultado = False Then
+                    MessageBox.Show("Ainda não há materiais cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ListBox1.Items.Add("Não há materiais cadastrados!")
+                End If
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
+    End Sub
+#End Region
+
+#Region "Carregar Combo Qualidade - Tipo"
+    Private Sub ComboBox6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox6.SelectedIndexChanged
+        ListBox4.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox6.Text & "'")
+            Ler()
+            While leitura.Read
+                ComboBox5.Items.Add(leitura("NOMEQUALIDADE"))
+                ListBox4.Items.Add(leitura("NOMEQUALIDADE"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+#Region "Carregar Lista - Tipo"
+    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
+        ListBox4.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMETIPO FROM TB_TIPOS WHERE NOMEQUALIDADE = '" & ComboBox6.Text & "'")
+            Ler()
+            While leitura.Read
+                ComboBox5.Items.Add(leitura("NOMETIPO"))
+                ListBox4.Items.Add(leitura("NOMETIPO"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+#Region "Carregar Lista - Qualidade"
+    Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
+        ListBox3.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox4.Text & "'")
+            Ler()
+            While leitura.Read
+                ComboBox5.Items.Add(leitura("NOMEQUALIDADE"))
+                ListBox3.Items.Add(leitura("NOMEQUALIDADE"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+#Region "Correção de Erros"
+    Private Sub ComboBox6_Click(sender As Object, e As EventArgs) Handles ComboBox6.Click
+        ListBox4.Items.Clear()
+        ComboBox5.Text = ""
+    End Sub
+#End Region
+
+#Region "Carregar Combo Qualidade - Material"
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        ListBox1.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox1.Text & "'")
+            Ler()
+            While leitura.Read
+                ComboBox2.Items.Add(leitura("NOMEQUALIDADE"))
+                ListBox1.Items.Add(leitura("NOMEQUALIDADE"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+#Region "Carregar Combo Tipo - Material"
+    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+        ListBox1.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMETIPO FROM TB_TIPOS WHERE NOMEQUALIDADE = '" & ComboBox2.Text & "' AND NOMEGRUPOMAT = '" & ComboBox1.Text & "'")
+            Ler()
+            While leitura.Read
+                ComboBox3.Items.Add(leitura("NOMETIPO"))
+                ListBox1.Items.Add(leitura("NOMETIPO"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 #End Region
 
