@@ -26,29 +26,10 @@ Partial Class frmInicial
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.tsmArquivo = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCadEmp = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnConfigImp = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnFimSessao = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmConfig = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnUsu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnConfigVisu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnConfigLay = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnConfigIni = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IncluirModeloDeRelatórioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsumoEImpostosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsumosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImpostosEEncargosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FazerBackupDeBancoDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmSerial = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InserirChaveDeAcessoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AtualizaçãoDoProgramaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AjudaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmAjuda = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AjudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SobreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
+        Me.btnLogistica = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProjetosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProdutosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MontagensToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,6 +45,9 @@ Partial Class frmInicial
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FuncionariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnProducao = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdemDeProduçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdemDeBeneficiamentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosDeComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -78,8 +62,6 @@ Partial Class frmInicial
         Me.OrçamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.PedidoDeVendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnLogistica = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnProducao = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstoqueInicialToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstoqueAtualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -103,6 +85,26 @@ Partial Class frmInicial
         Me.PorDataToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculadoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnConfigImp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmConfig = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnUsu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnConfigVisu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnConfigLay = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnConfigIni = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IncluirModeloDeRelatórioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsumoEImpostosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsumosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImpostosEEncargosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FazerBackupDeBancoDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmSerial = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InserirChaveDeAcessoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AtualizaçãoDoProgramaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AjudaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAjuda = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AjudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SobreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.MenuStrip2.SuspendLayout()
         Me.SuspendLayout()
@@ -129,14 +131,6 @@ Partial Class frmInicial
         Me.btnCadEmp.Size = New System.Drawing.Size(223, 22)
         Me.btnCadEmp.Text = "Cadastro da empresa"
         '
-        'btnConfigImp
-        '
-        Me.btnConfigImp.Enabled = False
-        Me.btnConfigImp.Image = Global.Projekter_ERP.My.Resources.Resources._11769_64x64
-        Me.btnConfigImp.Name = "btnConfigImp"
-        Me.btnConfigImp.Size = New System.Drawing.Size(223, 22)
-        Me.btnConfigImp.Text = "Configuração de impressora"
-        '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
@@ -148,140 +142,21 @@ Partial Class frmInicial
         Me.btnFimSessao.Size = New System.Drawing.Size(223, 22)
         Me.btnFimSessao.Text = "Finalizar sessão"
         '
-        'tsmConfig
-        '
-        Me.tsmConfig.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnUsu, Me.btnConfigVisu, Me.ConsumoEImpostosToolStripMenuItem, Me.FazerBackupDeBancoDeDadosToolStripMenuItem, Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem})
-        Me.tsmConfig.Image = Global.Projekter_ERP.My.Resources.Resources.three_gears_of_configuration_tools
-        Me.tsmConfig.Name = "tsmConfig"
-        Me.tsmConfig.Size = New System.Drawing.Size(112, 20)
-        Me.tsmConfig.Text = "Configurações"
-        '
-        'btnUsu
-        '
-        Me.btnUsu.Image = Global.Projekter_ERP.My.Resources.Resources._11983_64x64
-        Me.btnUsu.Name = "btnUsu"
-        Me.btnUsu.Size = New System.Drawing.Size(268, 22)
-        Me.btnUsu.Text = "Usuários"
-        '
-        'btnConfigVisu
-        '
-        Me.btnConfigVisu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnConfigLay, Me.btnConfigIni, Me.IncluirModeloDeRelatórioToolStripMenuItem})
-        Me.btnConfigVisu.Enabled = False
-        Me.btnConfigVisu.Name = "btnConfigVisu"
-        Me.btnConfigVisu.Size = New System.Drawing.Size(268, 22)
-        Me.btnConfigVisu.Text = "Configurações visuais"
-        '
-        'btnConfigLay
-        '
-        Me.btnConfigLay.Name = "btnConfigLay"
-        Me.btnConfigLay.Size = New System.Drawing.Size(218, 22)
-        Me.btnConfigLay.Text = "Configuração de layout"
-        '
-        'btnConfigIni
-        '
-        Me.btnConfigIni.Name = "btnConfigIni"
-        Me.btnConfigIni.Size = New System.Drawing.Size(218, 22)
-        Me.btnConfigIni.Text = "Configuração de tela inicial"
-        '
-        'IncluirModeloDeRelatórioToolStripMenuItem
-        '
-        Me.IncluirModeloDeRelatórioToolStripMenuItem.Name = "IncluirModeloDeRelatórioToolStripMenuItem"
-        Me.IncluirModeloDeRelatórioToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.IncluirModeloDeRelatórioToolStripMenuItem.Text = "Incluir modelo de relatório"
-        '
-        'ConsumoEImpostosToolStripMenuItem
-        '
-        Me.ConsumoEImpostosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsumosToolStripMenuItem, Me.ImpostosEEncargosToolStripMenuItem})
-        Me.ConsumoEImpostosToolStripMenuItem.Enabled = False
-        Me.ConsumoEImpostosToolStripMenuItem.Name = "ConsumoEImpostosToolStripMenuItem"
-        Me.ConsumoEImpostosToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
-        Me.ConsumoEImpostosToolStripMenuItem.Text = "Consumo e impostos"
-        '
-        'ConsumosToolStripMenuItem
-        '
-        Me.ConsumosToolStripMenuItem.Name = "ConsumosToolStripMenuItem"
-        Me.ConsumosToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
-        Me.ConsumosToolStripMenuItem.Text = "Consumos"
-        '
-        'ImpostosEEncargosToolStripMenuItem
-        '
-        Me.ImpostosEEncargosToolStripMenuItem.Name = "ImpostosEEncargosToolStripMenuItem"
-        Me.ImpostosEEncargosToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
-        Me.ImpostosEEncargosToolStripMenuItem.Text = "Impostos"
-        '
-        'FazerBackupDeBancoDeDadosToolStripMenuItem
-        '
-        Me.FazerBackupDeBancoDeDadosToolStripMenuItem.Name = "FazerBackupDeBancoDeDadosToolStripMenuItem"
-        Me.FazerBackupDeBancoDeDadosToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
-        Me.FazerBackupDeBancoDeDadosToolStripMenuItem.Text = "Fazer back-up de banco de dados"
-        '
-        'FazerRestauraçãoDeBancoDeDadosToolStripMenuItem
-        '
-        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem.Name = "FazerRestauraçãoDeBancoDeDadosToolStripMenuItem"
-        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
-        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem.Text = "Fazer restauração de banco de dados"
-        '
-        'tsmSerial
-        '
-        Me.tsmSerial.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InserirChaveDeAcessoToolStripMenuItem, Me.AtualizaçãoDoProgramaToolStripMenuItem, Me.AjudaToolStripMenuItem1})
-        Me.tsmSerial.Enabled = False
-        Me.tsmSerial.Image = Global.Projekter_ERP.My.Resources.Resources.house_door_key
-        Me.tsmSerial.Name = "tsmSerial"
-        Me.tsmSerial.Size = New System.Drawing.Size(124, 20)
-        Me.tsmSerial.Text = "Chave de Acesso"
-        '
-        'InserirChaveDeAcessoToolStripMenuItem
-        '
-        Me.InserirChaveDeAcessoToolStripMenuItem.Name = "InserirChaveDeAcessoToolStripMenuItem"
-        Me.InserirChaveDeAcessoToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
-        Me.InserirChaveDeAcessoToolStripMenuItem.Text = "Inserir chave de acesso"
-        '
-        'AtualizaçãoDoProgramaToolStripMenuItem
-        '
-        Me.AtualizaçãoDoProgramaToolStripMenuItem.Name = "AtualizaçãoDoProgramaToolStripMenuItem"
-        Me.AtualizaçãoDoProgramaToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
-        Me.AtualizaçãoDoProgramaToolStripMenuItem.Text = "Atualização do programa"
-        '
-        'AjudaToolStripMenuItem1
-        '
-        Me.AjudaToolStripMenuItem1.Name = "AjudaToolStripMenuItem1"
-        Me.AjudaToolStripMenuItem1.Size = New System.Drawing.Size(207, 22)
-        Me.AjudaToolStripMenuItem1.Text = "Ajuda"
-        '
-        'tsmAjuda
-        '
-        Me.tsmAjuda.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjudaToolStripMenuItem, Me.ToolStripSeparator2, Me.SobreToolStripMenuItem})
-        Me.tsmAjuda.Image = Global.Projekter_ERP.My.Resources.Resources.question_mark
-        Me.tsmAjuda.Name = "tsmAjuda"
-        Me.tsmAjuda.Size = New System.Drawing.Size(66, 20)
-        Me.tsmAjuda.Text = "Ajuda"
-        '
-        'AjudaToolStripMenuItem
-        '
-        Me.AjudaToolStripMenuItem.Enabled = False
-        Me.AjudaToolStripMenuItem.Name = "AjudaToolStripMenuItem"
-        Me.AjudaToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
-        Me.AjudaToolStripMenuItem.Text = "Ajuda"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(102, 6)
-        '
-        'SobreToolStripMenuItem
-        '
-        Me.SobreToolStripMenuItem.Name = "SobreToolStripMenuItem"
-        Me.SobreToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
-        Me.SobreToolStripMenuItem.Text = "Sobre"
-        '
         'MenuStrip2
         '
-        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProjetosToolStripMenuItem, Me.MateriaisToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.VendasToolStripMenuItem, Me.btnLogistica, Me.btnProducao, Me.EstoqueToolStripMenuItem, Me.FinanceiroToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.CalculadoraToolStripMenuItem})
+        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProjetosToolStripMenuItem, Me.MateriaisToolStripMenuItem, Me.btnProducao, Me.ComprasToolStripMenuItem, Me.VendasToolStripMenuItem, Me.btnLogistica, Me.EstoqueToolStripMenuItem, Me.FinanceiroToolStripMenuItem, Me.RelatóriosToolStripMenuItem, Me.CalculadoraToolStripMenuItem})
         Me.MenuStrip2.Location = New System.Drawing.Point(0, 24)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(1354, 87)
         Me.MenuStrip2.TabIndex = 1
         Me.MenuStrip2.Text = "MenuStrip2"
+        '
+        'btnLogistica
+        '
+        Me.btnLogistica.Enabled = False
+        Me.btnLogistica.Name = "btnLogistica"
+        Me.btnLogistica.Size = New System.Drawing.Size(66, 83)
+        Me.btnLogistica.Text = "Logística"
         '
         'ProjetosToolStripMenuItem
         '
@@ -296,19 +171,19 @@ Partial Class frmInicial
         'ProdutosToolStripMenuItem
         '
         Me.ProdutosToolStripMenuItem.Name = "ProdutosToolStripMenuItem"
-        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ProdutosToolStripMenuItem.Text = "Produto final"
         '
         'MontagensToolStripMenuItem
         '
         Me.MontagensToolStripMenuItem.Name = "MontagensToolStripMenuItem"
-        Me.MontagensToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.MontagensToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MontagensToolStripMenuItem.Text = "Componente"
         '
         'PeçasToolStripMenuItem
         '
         Me.PeçasToolStripMenuItem.Name = "PeçasToolStripMenuItem"
-        Me.PeçasToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.PeçasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PeçasToolStripMenuItem.Text = "Parte ou Peça"
         '
         'MateriaisToolStripMenuItem
@@ -324,14 +199,14 @@ Partial Class frmInicial
         'MatériaPrimaToolStripMenuItem
         '
         Me.MatériaPrimaToolStripMenuItem.Name = "MatériaPrimaToolStripMenuItem"
-        Me.MatériaPrimaToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.MatériaPrimaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MatériaPrimaToolStripMenuItem.Text = "Materiais"
         '
         'ConsumiveisToolStripMenuItem1
         '
         Me.ConsumiveisToolStripMenuItem1.Enabled = False
         Me.ConsumiveisToolStripMenuItem1.Name = "ConsumiveisToolStripMenuItem1"
-        Me.ConsumiveisToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
+        Me.ConsumiveisToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ConsumiveisToolStripMenuItem1.Text = "Consumíveis"
         '
         'MãoDeObraToolStripMenuItem
@@ -339,7 +214,7 @@ Partial Class frmInicial
         Me.MãoDeObraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripSeparator1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
         Me.MãoDeObraToolStripMenuItem.Enabled = False
         Me.MãoDeObraToolStripMenuItem.Name = "MãoDeObraToolStripMenuItem"
-        Me.MãoDeObraToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.MãoDeObraToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MãoDeObraToolStripMenuItem.Text = "Mão de Obra"
         '
         'ToolStripMenuItem1
@@ -382,8 +257,31 @@ Partial Class frmInicial
         '
         Me.FuncionariosToolStripMenuItem.Enabled = False
         Me.FuncionariosToolStripMenuItem.Name = "FuncionariosToolStripMenuItem"
-        Me.FuncionariosToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.FuncionariosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.FuncionariosToolStripMenuItem.Text = "Funcionários"
+        '
+        'btnProducao
+        '
+        Me.btnProducao.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdemDeProduçãoToolStripMenuItem, Me.OrdemDeBeneficiamentoToolStripMenuItem})
+        Me.btnProducao.Image = Global.Projekter_ERP.My.Resources.Resources.hammer_shape__1_
+        Me.btnProducao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btnProducao.Name = "btnProducao"
+        Me.btnProducao.Size = New System.Drawing.Size(76, 83)
+        Me.btnProducao.Text = "Produção"
+        Me.btnProducao.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnProducao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'OrdemDeProduçãoToolStripMenuItem
+        '
+        Me.OrdemDeProduçãoToolStripMenuItem.Name = "OrdemDeProduçãoToolStripMenuItem"
+        Me.OrdemDeProduçãoToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.OrdemDeProduçãoToolStripMenuItem.Text = "Ordem de Produção"
+        '
+        'OrdemDeBeneficiamentoToolStripMenuItem
+        '
+        Me.OrdemDeBeneficiamentoToolStripMenuItem.Name = "OrdemDeBeneficiamentoToolStripMenuItem"
+        Me.OrdemDeBeneficiamentoToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.OrdemDeBeneficiamentoToolStripMenuItem.Text = "Ordem de Beneficiamento"
         '
         'ComprasToolStripMenuItem
         '
@@ -432,24 +330,24 @@ Partial Class frmInicial
         'FornceToolStripMenuItem
         '
         Me.FornceToolStripMenuItem.Name = "FornceToolStripMenuItem"
-        Me.FornceToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.FornceToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.FornceToolStripMenuItem.Text = "Fornecedores"
         '
         'TabelasDeValoresToolStripMenuItem
         '
         Me.TabelasDeValoresToolStripMenuItem.Name = "TabelasDeValoresToolStripMenuItem"
-        Me.TabelasDeValoresToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.TabelasDeValoresToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.TabelasDeValoresToolStripMenuItem.Text = "Tabelas de valores"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(167, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(166, 6)
         '
         'ComparadorToolStripMenuItem
         '
         Me.ComparadorToolStripMenuItem.Name = "ComparadorToolStripMenuItem"
-        Me.ComparadorToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ComparadorToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ComparadorToolStripMenuItem.Text = "Comparador"
         '
         'VendasToolStripMenuItem
@@ -480,18 +378,6 @@ Partial Class frmInicial
         Me.PedidoDeVendaToolStripMenuItem.Name = "PedidoDeVendaToolStripMenuItem"
         Me.PedidoDeVendaToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.PedidoDeVendaToolStripMenuItem.Text = "Pedido de venda"
-        '
-        'btnLogistica
-        '
-        Me.btnLogistica.Name = "btnLogistica"
-        Me.btnLogistica.Size = New System.Drawing.Size(66, 83)
-        Me.btnLogistica.Text = "Logística"
-        '
-        'btnProducao
-        '
-        Me.btnProducao.Name = "btnProducao"
-        Me.btnProducao.Size = New System.Drawing.Size(70, 83)
-        Me.btnProducao.Text = "Produção"
         '
         'EstoqueToolStripMenuItem
         '
@@ -654,6 +540,140 @@ Partial Class frmInicial
         Me.CalculadoraToolStripMenuItem.Text = "Calculadora"
         Me.CalculadoraToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'btnConfigImp
+        '
+        Me.btnConfigImp.Enabled = False
+        Me.btnConfigImp.Image = Global.Projekter_ERP.My.Resources.Resources._11769_64x64
+        Me.btnConfigImp.Name = "btnConfigImp"
+        Me.btnConfigImp.Size = New System.Drawing.Size(223, 22)
+        Me.btnConfigImp.Text = "Configuração de impressora"
+        '
+        'tsmConfig
+        '
+        Me.tsmConfig.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnUsu, Me.btnConfigVisu, Me.ConsumoEImpostosToolStripMenuItem, Me.FazerBackupDeBancoDeDadosToolStripMenuItem, Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem})
+        Me.tsmConfig.Image = Global.Projekter_ERP.My.Resources.Resources.three_gears_of_configuration_tools
+        Me.tsmConfig.Name = "tsmConfig"
+        Me.tsmConfig.Size = New System.Drawing.Size(112, 20)
+        Me.tsmConfig.Text = "Configurações"
+        '
+        'btnUsu
+        '
+        Me.btnUsu.Image = Global.Projekter_ERP.My.Resources.Resources._11983_64x64
+        Me.btnUsu.Name = "btnUsu"
+        Me.btnUsu.Size = New System.Drawing.Size(268, 22)
+        Me.btnUsu.Text = "Usuários"
+        '
+        'btnConfigVisu
+        '
+        Me.btnConfigVisu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnConfigLay, Me.btnConfigIni, Me.IncluirModeloDeRelatórioToolStripMenuItem})
+        Me.btnConfigVisu.Enabled = False
+        Me.btnConfigVisu.Name = "btnConfigVisu"
+        Me.btnConfigVisu.Size = New System.Drawing.Size(268, 22)
+        Me.btnConfigVisu.Text = "Configurações visuais"
+        '
+        'btnConfigLay
+        '
+        Me.btnConfigLay.Name = "btnConfigLay"
+        Me.btnConfigLay.Size = New System.Drawing.Size(218, 22)
+        Me.btnConfigLay.Text = "Configuração de layout"
+        '
+        'btnConfigIni
+        '
+        Me.btnConfigIni.Name = "btnConfigIni"
+        Me.btnConfigIni.Size = New System.Drawing.Size(218, 22)
+        Me.btnConfigIni.Text = "Configuração de tela inicial"
+        '
+        'IncluirModeloDeRelatórioToolStripMenuItem
+        '
+        Me.IncluirModeloDeRelatórioToolStripMenuItem.Name = "IncluirModeloDeRelatórioToolStripMenuItem"
+        Me.IncluirModeloDeRelatórioToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.IncluirModeloDeRelatórioToolStripMenuItem.Text = "Incluir modelo de relatório"
+        '
+        'ConsumoEImpostosToolStripMenuItem
+        '
+        Me.ConsumoEImpostosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsumosToolStripMenuItem, Me.ImpostosEEncargosToolStripMenuItem})
+        Me.ConsumoEImpostosToolStripMenuItem.Enabled = False
+        Me.ConsumoEImpostosToolStripMenuItem.Name = "ConsumoEImpostosToolStripMenuItem"
+        Me.ConsumoEImpostosToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
+        Me.ConsumoEImpostosToolStripMenuItem.Text = "Consumo e impostos"
+        '
+        'ConsumosToolStripMenuItem
+        '
+        Me.ConsumosToolStripMenuItem.Name = "ConsumosToolStripMenuItem"
+        Me.ConsumosToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.ConsumosToolStripMenuItem.Text = "Consumos"
+        '
+        'ImpostosEEncargosToolStripMenuItem
+        '
+        Me.ImpostosEEncargosToolStripMenuItem.Name = "ImpostosEEncargosToolStripMenuItem"
+        Me.ImpostosEEncargosToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.ImpostosEEncargosToolStripMenuItem.Text = "Impostos"
+        '
+        'FazerBackupDeBancoDeDadosToolStripMenuItem
+        '
+        Me.FazerBackupDeBancoDeDadosToolStripMenuItem.Name = "FazerBackupDeBancoDeDadosToolStripMenuItem"
+        Me.FazerBackupDeBancoDeDadosToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
+        Me.FazerBackupDeBancoDeDadosToolStripMenuItem.Text = "Fazer back-up de banco de dados"
+        '
+        'FazerRestauraçãoDeBancoDeDadosToolStripMenuItem
+        '
+        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem.Name = "FazerRestauraçãoDeBancoDeDadosToolStripMenuItem"
+        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
+        Me.FazerRestauraçãoDeBancoDeDadosToolStripMenuItem.Text = "Fazer restauração de banco de dados"
+        '
+        'tsmSerial
+        '
+        Me.tsmSerial.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InserirChaveDeAcessoToolStripMenuItem, Me.AtualizaçãoDoProgramaToolStripMenuItem, Me.AjudaToolStripMenuItem1})
+        Me.tsmSerial.Enabled = False
+        Me.tsmSerial.Image = Global.Projekter_ERP.My.Resources.Resources.house_door_key
+        Me.tsmSerial.Name = "tsmSerial"
+        Me.tsmSerial.Size = New System.Drawing.Size(124, 20)
+        Me.tsmSerial.Text = "Chave de Acesso"
+        '
+        'InserirChaveDeAcessoToolStripMenuItem
+        '
+        Me.InserirChaveDeAcessoToolStripMenuItem.Name = "InserirChaveDeAcessoToolStripMenuItem"
+        Me.InserirChaveDeAcessoToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.InserirChaveDeAcessoToolStripMenuItem.Text = "Inserir chave de acesso"
+        '
+        'AtualizaçãoDoProgramaToolStripMenuItem
+        '
+        Me.AtualizaçãoDoProgramaToolStripMenuItem.Name = "AtualizaçãoDoProgramaToolStripMenuItem"
+        Me.AtualizaçãoDoProgramaToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.AtualizaçãoDoProgramaToolStripMenuItem.Text = "Atualização do programa"
+        '
+        'AjudaToolStripMenuItem1
+        '
+        Me.AjudaToolStripMenuItem1.Name = "AjudaToolStripMenuItem1"
+        Me.AjudaToolStripMenuItem1.Size = New System.Drawing.Size(207, 22)
+        Me.AjudaToolStripMenuItem1.Text = "Ajuda"
+        '
+        'tsmAjuda
+        '
+        Me.tsmAjuda.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjudaToolStripMenuItem, Me.ToolStripSeparator2, Me.SobreToolStripMenuItem})
+        Me.tsmAjuda.Image = Global.Projekter_ERP.My.Resources.Resources.question_mark
+        Me.tsmAjuda.Name = "tsmAjuda"
+        Me.tsmAjuda.Size = New System.Drawing.Size(66, 20)
+        Me.tsmAjuda.Text = "Ajuda"
+        '
+        'AjudaToolStripMenuItem
+        '
+        Me.AjudaToolStripMenuItem.Enabled = False
+        Me.AjudaToolStripMenuItem.Name = "AjudaToolStripMenuItem"
+        Me.AjudaToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.AjudaToolStripMenuItem.Text = "Ajuda"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(102, 6)
+        '
+        'SobreToolStripMenuItem
+        '
+        Me.SobreToolStripMenuItem.Name = "SobreToolStripMenuItem"
+        Me.SobreToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.SobreToolStripMenuItem.Text = "Sobre"
+        '
         'frmInicial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -755,5 +775,7 @@ Partial Class frmInicial
     Friend WithEvents MaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnLogistica As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnProducao As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OrdemDeProduçãoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OrdemDeBeneficiamentoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

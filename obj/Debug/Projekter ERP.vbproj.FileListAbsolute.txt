@@ -118,3 +118,7 @@ C:\Users\Catharina\Documents\Projekter ERP\obj\Debug\Projekter_ERP.SplashScreen.
 C:\Users\Catharina\Documents\Projekter ERP\obj\Debug\Projekter ERP.vbproj.GenerateResource.Cache
 C:\Users\Catharina\Documents\Projekter ERP\obj\Debug\RdlCompile.cache
 C:\Users\Catharina\Documents\Projekter ERP\obj\Debug\RdlCompile.compiled
+C:\Users\Projetos\Documents\Projekter ERP\bin\Debug\Projekter ERP.exe.config
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.exe
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.xml
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.pdb

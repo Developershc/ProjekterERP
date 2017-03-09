@@ -477,6 +477,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Final.ico" />
+    <None Include="Resources\hammer-shape %281%29.png" />
+    <None Include="Resources\hammer-shape.png" />
     <None Include="Resources\buildings.png" />
     <None Include="Resources\carpenter %281%29.png" />
     <None Include="Resources\carpenter.png" />

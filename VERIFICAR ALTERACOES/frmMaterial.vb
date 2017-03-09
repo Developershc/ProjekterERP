@@ -1298,4 +1298,7 @@
     'RemoveHandler Button4.Click, AddressOf Button4_Click
     'AddHandler Button4.Click, AddressOf AlterarDadosGrupo
 
+    Private Sub Label30_Click(sender As Object, e As EventArgs) Handles Label30.Click
+
+    End Sub
 End Class
