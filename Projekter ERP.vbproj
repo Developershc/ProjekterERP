@@ -98,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexaoBanco.vb" />
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POSTERIOR\Aguardar\frmGerarPedido.Designer.vb">
       <DependentUpon>frmGerarPedido.vb</DependentUpon>
     </Compile>
@@ -279,6 +285,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POSTERIOR\Aguardar\frmGerarPedido.resx">
       <DependentUpon>frmGerarPedido.vb</DependentUpon>
     </EmbeddedResource>

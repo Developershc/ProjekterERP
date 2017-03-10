@@ -87,6 +87,14 @@ ProjekterERP
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Projekter_ERP.My.Resources.Resources.hammer_shape">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Projekter_ERP.My.Resources.Resources.hammer_shape__1_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Projekter_ERP.My.Resources.Resources.house_door_key">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

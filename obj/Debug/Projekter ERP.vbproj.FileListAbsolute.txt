@@ -122,3 +122,39 @@ C:\Users\Projetos\Documents\Projekter ERP\bin\Debug\Projekter ERP.exe.config
 C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.exe
 C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.xml
 C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.pdb
+C:\Users\Projetos\Documents\Projekter ERP\bin\Debug\Projekter ERP.exe
+C:\Users\Projetos\Documents\Projekter ERP\bin\Debug\Projekter ERP.pdb
+C:\Users\Projetos\Documents\Projekter ERP\bin\Debug\Projekter ERP.xml
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.vbprojResolveAssemblyReference.cache
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.Form2.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmGerarPedido.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmMessageBox.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmPedidosCV.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmLocalizar.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmES.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmQuadro.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmImpostos.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmConsumos.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmEA.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmEI.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmOrcamento.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmCNC.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmComparados.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmConsumivel.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmValores.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmSM.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmProcessosFabr.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmFuncionario.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmMaterial.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmManutencao.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmSobre.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmCadastroEF.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmMP.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmInicial.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmPeca.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.frmLogin.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.Resources.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter_ERP.SplashScreen.resources
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\Projekter ERP.vbproj.GenerateResource.Cache
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\RdlCompile.cache
+C:\Users\Projetos\Documents\Projekter ERP\obj\Debug\RdlCompile.compiled

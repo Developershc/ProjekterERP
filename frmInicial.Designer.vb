@@ -48,6 +48,8 @@ Partial Class frmInicial
         Me.btnProducao = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdemDeProduçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdemDeBeneficiamentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CalendarioDeProduçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PCPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosDeComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -171,19 +173,19 @@ Partial Class frmInicial
         'ProdutosToolStripMenuItem
         '
         Me.ProdutosToolStripMenuItem.Name = "ProdutosToolStripMenuItem"
-        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ProdutosToolStripMenuItem.Text = "Produto final"
         '
         'MontagensToolStripMenuItem
         '
         Me.MontagensToolStripMenuItem.Name = "MontagensToolStripMenuItem"
-        Me.MontagensToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MontagensToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.MontagensToolStripMenuItem.Text = "Componente"
         '
         'PeçasToolStripMenuItem
         '
         Me.PeçasToolStripMenuItem.Name = "PeçasToolStripMenuItem"
-        Me.PeçasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PeçasToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.PeçasToolStripMenuItem.Text = "Parte ou Peça"
         '
         'MateriaisToolStripMenuItem
@@ -199,14 +201,14 @@ Partial Class frmInicial
         'MatériaPrimaToolStripMenuItem
         '
         Me.MatériaPrimaToolStripMenuItem.Name = "MatériaPrimaToolStripMenuItem"
-        Me.MatériaPrimaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MatériaPrimaToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.MatériaPrimaToolStripMenuItem.Text = "Materiais"
         '
         'ConsumiveisToolStripMenuItem1
         '
         Me.ConsumiveisToolStripMenuItem1.Enabled = False
         Me.ConsumiveisToolStripMenuItem1.Name = "ConsumiveisToolStripMenuItem1"
-        Me.ConsumiveisToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ConsumiveisToolStripMenuItem1.Size = New System.Drawing.Size(143, 22)
         Me.ConsumiveisToolStripMenuItem1.Text = "Consumíveis"
         '
         'MãoDeObraToolStripMenuItem
@@ -214,7 +216,7 @@ Partial Class frmInicial
         Me.MãoDeObraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripSeparator1, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
         Me.MãoDeObraToolStripMenuItem.Enabled = False
         Me.MãoDeObraToolStripMenuItem.Name = "MãoDeObraToolStripMenuItem"
-        Me.MãoDeObraToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MãoDeObraToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.MãoDeObraToolStripMenuItem.Text = "Mão de Obra"
         '
         'ToolStripMenuItem1
@@ -257,12 +259,12 @@ Partial Class frmInicial
         '
         Me.FuncionariosToolStripMenuItem.Enabled = False
         Me.FuncionariosToolStripMenuItem.Name = "FuncionariosToolStripMenuItem"
-        Me.FuncionariosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FuncionariosToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.FuncionariosToolStripMenuItem.Text = "Funcionários"
         '
         'btnProducao
         '
-        Me.btnProducao.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdemDeProduçãoToolStripMenuItem, Me.OrdemDeBeneficiamentoToolStripMenuItem})
+        Me.btnProducao.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdemDeProduçãoToolStripMenuItem, Me.OrdemDeBeneficiamentoToolStripMenuItem, Me.CalendarioDeProduçãoToolStripMenuItem, Me.PCPToolStripMenuItem})
         Me.btnProducao.Image = Global.Projekter_ERP.My.Resources.Resources.hammer_shape__1_
         Me.btnProducao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.btnProducao.Name = "btnProducao"
@@ -283,6 +285,19 @@ Partial Class frmInicial
         Me.OrdemDeBeneficiamentoToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.OrdemDeBeneficiamentoToolStripMenuItem.Text = "Ordem de Beneficiamento"
         '
+        'CalendarioDeProduçãoToolStripMenuItem
+        '
+        Me.CalendarioDeProduçãoToolStripMenuItem.Name = "CalendarioDeProduçãoToolStripMenuItem"
+        Me.CalendarioDeProduçãoToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CalendarioDeProduçãoToolStripMenuItem.Text = "Calendario de Produção"
+        '
+        'PCPToolStripMenuItem
+        '
+        Me.PCPToolStripMenuItem.Enabled = False
+        Me.PCPToolStripMenuItem.Name = "PCPToolStripMenuItem"
+        Me.PCPToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.PCPToolStripMenuItem.Text = "PCP"
+        '
         'ComprasToolStripMenuItem
         '
         Me.ComprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PedidosDeComprasToolStripMenuItem, Me.ToolStripSeparator7, Me.FornecedoresToolStripMenuItem1})
@@ -298,7 +313,6 @@ Partial Class frmInicial
         'PedidosDeComprasToolStripMenuItem
         '
         Me.PedidosDeComprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PedidosToolStripMenuItem, Me.SolicitaçõesDeCompraToolStripMenuItem})
-        Me.PedidosDeComprasToolStripMenuItem.Enabled = False
         Me.PedidosDeComprasToolStripMenuItem.Name = "PedidosDeComprasToolStripMenuItem"
         Me.PedidosDeComprasToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.PedidosDeComprasToolStripMenuItem.Text = "Pedidos de compras"
@@ -353,7 +367,6 @@ Partial Class frmInicial
         'VendasToolStripMenuItem
         '
         Me.VendasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrçamentosToolStripMenuItem, Me.ToolStripSeparator6, Me.PedidoDeVendaToolStripMenuItem})
-        Me.VendasToolStripMenuItem.Enabled = False
         Me.VendasToolStripMenuItem.Image = Global.Projekter_ERP.My.Resources.Resources.house_sale_agreement
         Me.VendasToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.VendasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -777,5 +790,7 @@ Partial Class frmInicial
     Friend WithEvents btnProducao As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OrdemDeProduçãoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OrdemDeBeneficiamentoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CalendarioDeProduçãoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PCPToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

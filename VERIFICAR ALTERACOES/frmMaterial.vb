@@ -1301,4 +1301,8 @@
     Private Sub Label30_Click(sender As Object, e As EventArgs) Handles Label30.Click
 
     End Sub
+
+    Private Sub Label31_Click(sender As Object, e As EventArgs) Handles Label31.Click
+
+    End Sub
 End Class
