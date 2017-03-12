@@ -11,7 +11,7 @@
             End
         End If
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Finalizar Sessão"
     Private Sub FinalizarSessãoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles btnFimSessao.Click
@@ -25,13 +25,13 @@
             Application.Exit()
         End If
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Calculadora"
     Private Sub CalculadoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalculadoraToolStripMenuItem.Click
         Shell("calc")
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Cadastro de Empresa"
     Private Sub btnCadEmp_Click(sender As Object, e As EventArgs) Handles btnCadEmp.Click
@@ -43,7 +43,7 @@
         frmCadastroEF.Show()
         frmCadastroEF = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Fornecedor"
     Private Sub FornceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FornceToolStripMenuItem.Click
@@ -57,14 +57,14 @@
         frmCadastroEF.Text = "Fornecedor"
         frmCadastroEF = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Sobre"
     Private Sub SobreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SobreToolStripMenuItem.Click
         frmSobre.Show()
         frmSobre.Text = "Sobre"
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Peça"
     Private Sub PeçasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PeçasToolStripMenuItem.Click
@@ -76,7 +76,7 @@
         frmPeca.Show()
         frmPeca = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Montagem"
     Private Sub MontagensToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MontagensToolStripMenuItem.Click
@@ -89,7 +89,7 @@
         frmMP.Text = "Montagem"
         frmMP = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Produto"
     Private Sub ProdutosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProdutosToolStripMenuItem.Click
@@ -102,7 +102,7 @@
         frmMP.Text = "Produto"
         frmMP = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Manutenção"
     Private Sub btnUsu_Click(sender As Object, e As EventArgs) Handles btnUsu.Click
@@ -114,7 +114,7 @@
         frmManutencao.Show()
         frmManutencao = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Material"
     Private Sub MatériaPrimaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MatériaPrimaToolStripMenuItem.Click
@@ -126,7 +126,7 @@
         frmMaterial.Show()
         frmMaterial = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Funcionário"
     Private Sub FuncionariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FuncionariosToolStripMenuItem.Click
@@ -138,7 +138,7 @@
         frmFuncionario.Show()
         frmFuncionario = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Maquinário"
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
@@ -154,7 +154,7 @@
         frmSM.CheckBox1.Visible = True
         frmSM = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Valores"
     Private Sub TabelasDeValoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TabelasDeValoresToolStripMenuItem.Click
@@ -166,7 +166,7 @@
         frmValores.Show()
         frmValores = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Consumíveis"
     Private Sub ConsumiveisToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConsumiveisToolStripMenuItem1.Click
@@ -178,7 +178,7 @@
         frmConsumivel.Show()
         frmConsumivel = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Comparador"
     Private Sub ComparadorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComparadorToolStripMenuItem.Click
@@ -190,7 +190,7 @@
         frmComparados.Show()
         frmComparados = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "SM"
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
@@ -202,7 +202,7 @@
         frmSM.Show()
         frmSM = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Processo de Fabricação"
     Private Sub ProcessoDeFabricaçãoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProcessoDeFabricaçãoToolStripMenuItem.Click
@@ -214,7 +214,7 @@
         frmProducao.Show()
         frmProducao = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "CNC"
     Private Sub CNCToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CNCToolStripMenuItem.Click
@@ -226,7 +226,7 @@
         frmCNC.Show()
         frmCNC = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Orçamentos"
     Private Sub OrçamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrçamentosToolStripMenuItem.Click
@@ -238,7 +238,7 @@
         frmOrcamento.Show()
         frmOrcamento = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Estoque Inicial"
     Private Sub EstoqueInicialToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles EstoqueInicialToolStripMenuItem2.Click
@@ -250,7 +250,7 @@
         frmEI.Show()
         frmEI = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Estoque Atual"
     Private Sub EstoqueAtualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstoqueAtualToolStripMenuItem.Click
@@ -262,7 +262,7 @@
         frmEA.Show()
         frmEA = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Consumos"
     Private Sub ConsumosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsumosToolStripMenuItem.Click
@@ -274,7 +274,7 @@
         frmConsumos.Show()
         frmConsumos = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Impostos"
     Private Sub ImpostosEEncargosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImpostosEEncargosToolStripMenuItem.Click
@@ -286,7 +286,7 @@
         frmImpostos.Show()
         frmImpostos = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Entrada"
     Private Sub EntradaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaToolStripMenuItem.Click
@@ -301,7 +301,7 @@
         frmES.ComboBox6.Visible = True
         frmES = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Saída"
     Private Sub SaídaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaídaToolStripMenuItem.Click
@@ -314,7 +314,7 @@
         frmES.Text = "Saída"
         frmES = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Pedido de Venda"
     Private Sub PedidoDeVendaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidoDeVendaToolStripMenuItem.Click
@@ -328,7 +328,7 @@
         frmGerarPedido.Label2.Text = "Cliente:"
         frmPedidosCV = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Pedido de Compra"
     Private Sub PedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosToolStripMenuItem.Click
@@ -340,7 +340,7 @@
         frmPedidosCV.Text = "Pedidos de compras"
         frmPedidosCV = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Solicitação de Compra"
     Private Sub SolicitaçõesDeCompraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SolicitaçõesDeCompraToolStripMenuItem.Click
@@ -362,7 +362,7 @@
         frmPedidosCV.Button5.Visible = True
         frmPedidosCV = Nothing
     End Sub
-#End Region 'OK
+#End Region
 
 #Region "Backup de banco de dados"
     Private Sub FazerBackupDeBancoDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FazerBackupDeBancoDeDadosToolStripMenuItem.Click

@@ -2,6 +2,7 @@
 
     Dim medida As Decimal
     Dim medidaprinc As Decimal
+    Dim id As Integer
 
 #Region "ToolTip"
     Private Sub Label5_MouseHover(sender As Object, e As EventArgs) Handles Label5.MouseHover
@@ -207,68 +208,6 @@
     End Sub
 #End Region
 
-#Region "Carregar Combos"
-    Private Sub frmMaterial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ListBox2.Items.Clear()
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
-            Ler()
-            Dim resultado As Boolean = leitura.HasRows
-            If resultado = True Then
-                While leitura.Read
-                    ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
-                End While
-            Else
-                MessageBox.Show("Ainda não há grupos de material cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ListBox2.Items.Add("Não há grupos de material cadastrados!")
-            End If
-            Fechar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
-            Ler()
-            Dim resultado As Boolean = leitura.HasRows
-            If resultado = True Then
-                While leitura.Read
-                    ComboBox4.Items.Add(leitura("NOMEGRUPOMAT"))
-                    ComboBox6.Items.Add(leitura("NOMEGRUPOMAT"))
-                    ComboBox1.Items.Add(leitura("NOMEGRUPOMAT"))
-                End While
-            Else
-                MessageBox.Show("Ainda não há grupos de material cadastrados!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ListBox2.Items.Add("Não há grupos de material cadastrados!")
-            End If
-            Fechar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMETIPO FROM TB_TIPOS")
-            Ler()
-            Dim resultado As Boolean = leitura.HasRows
-            If resultado = True Then
-                While leitura.Read
-                    ComboBox3.Items.Add(leitura("NOMETIPO"))
-                End While
-            Else
-                ListBox4.Items.Add("Não há tipos cadastrados!")
-            End If
-            Fechar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-#End Region
-
 #Region "Seleção/Alteração de Grupos de Material"
     Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
         TextBox8.ReadOnly = True
@@ -277,8 +216,15 @@
             Iniciar()
             Comandar("SELECT NOMEGRUPOMAT, CAMINHOIMGGRUPOMAT FROM TB_GRUPOSMAT WHERE NOMEGRUPOMAT = '" & ListBox2.SelectedItem & "'")
             Ler()
-            TextBox8.Text = leitura("NOMEGRUPOMAT")
-            PictureBox1.Image = Image.FromFile(leitura("CAMINHOIMGGRUPOMAT"))
+            While leitura.Read
+                If leitura("CAMINHOIMGGRUPOMAT") = "SEM IMAGEM" Then
+                    TextBox8.Text = leitura("NOMEGRUPOMAT")
+                    MessageBox.Show("Não há imagem cadastrada!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    TextBox8.Text = leitura("NOMEGRUPOMAT")
+                    PictureBox1.Image = Image.FromFile(leitura("CAMINHOIMGGRUPOMAT"))
+                End If
+            End While
             Fechar()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -286,7 +232,7 @@
         RemoveHandler Button4.Click, AddressOf Button4_Click
         AddHandler Button4.Click, AddressOf AlterarDadosGrupo
     End Sub
-#End Region 'TESTAR
+#End Region
 
 #Region "Seleção/Alteração de Qualidade"
     Private Sub ListBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox3.SelectedIndexChanged
@@ -297,10 +243,10 @@
             Comandar("SELECT NOMEGRUPOMAT, NOMEQUALIDADE, CAMINHOIMGQUALIDADE FROM TB_QUALIDADES WHERE NOMEQUALIDADE = '" & ListBox3.SelectedItem & "'")
             Ler()
             While leitura.Read
-                If leitura("NOMEGRUPOMAT").ToString Is DBNull.Value Then
-                    ComboBox4.Text = "NÃO POSSUI"
+                If leitura("CAMINHOIMGQUALIDADE") = "SEM IMAGEM" Then
+                    ComboBox4.Text = leitura("NOMEGRUPOMAT")
                     TextBox9.Text = leitura("NOMEQUALIDADE")
-                    PictureBox2.Image = Image.FromFile(leitura("CAMINHOIMGQUALIDADE"))
+                    MessageBox.Show("Não há imagem cadastrada!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
                     ComboBox4.Text = leitura("NOMEGRUPOMAT")
                     TextBox9.Text = leitura("NOMEQUALIDADE")
@@ -314,7 +260,7 @@
         RemoveHandler Button4.Click, AddressOf Button4_Click
         AddHandler Button4.Click, AddressOf AlterarDadosQualidade
     End Sub
-#End Region 'TESTAR
+#End Region
 
 #Region "Seleção/Alteração de Tipo"
     Private Sub ListBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox4.SelectedIndexChanged
@@ -325,11 +271,11 @@
             Comandar("SELECT NOMEQUALIDADE, NOMEGRUPOMAT, NOMETIPO, CAMINHOIMGTIPO FROM TB_TIPOS WHERE NOMETIPO = '" & ListBox4.SelectedItem & "'")
             Ler()
             While leitura.Read
-                If leitura("NOMEGRUPOMAT").ToString Is DBNull.Value And leitura("NOMEQUALIDADE").ToString Is DBNull.Value Then
-                    ComboBox5.Text = "NÃO POSSUI"
-                    ComboBox6.Text = "NÃO POSSUI"
+                If leitura("CAMINHOIMGTIPO") = "SEM IMAGEM" Then
+                    ComboBox5.Text = leitura("NOMEGRUPOMAT")
+                    ComboBox6.Text = leitura("NOMEQUALIDADE")
                     TextBox10.Text = leitura("NOMETIPO")
-                    PictureBox3.Image = Image.FromFile(leitura("CAMINHOIMGTIPO"))
+                    MessageBox.Show("Não há imagem cadastrada!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
                     ComboBox6.Text = leitura("NOMEGRUPOMAT")
                     ComboBox5.Text = leitura("NOMEQUALIDADE")
@@ -344,7 +290,7 @@
         RemoveHandler Button4.Click, AddressOf Button4_Click
         AddHandler Button4.Click, AddressOf AlterarDadosTipo
     End Sub
-#End Region 'TESTAR
+#End Region
 
 #Region "Seleção/Alteração de Material"
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -358,19 +304,19 @@
         Try
             Conectar()
             Iniciar()
-            Comandar("SELECT NOMEMAT, QUANTMEDIDAS, MEDIDA1, MEDIDA2, MEDIDA3, MEDIDA4, MEDIDA5, MEDIDAPRINC, KG, NOMEGRUPOMAT, NOMEQ, NOMET FROM TBMATERIAIS WHERE NOMEMAT = '" & ListBox1.SelectedIndex & "'")
+            Comandar("SELECT NOMEMATERIAL, QUANTMEDIDAS, MEDIDA1, MEDIDA2, MEDIDA3, MEDIDA4, MEDIDA5, MEDIDAPRINCIPAL, KG, NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO FROM TB_MATERIAIS WHERE NOMEMATERIAL = '" & ListBox1.SelectedItem & "'")
             Ler()
             While leitura.Read
                 ComboBox1.Text = leitura("NOMEGRUPOMAT")
-                ComboBox2.Text = leitura("NOMEQ")
-                ComboBox3.Text = leitura("NOMET")
-                TextBox6.Text = leitura("NOMEMAT")
+                ComboBox2.Text = leitura("NOMEQUALIDADE")
+                ComboBox3.Text = leitura("NOMETIPO")
+                TextBox6.Text = leitura("NOMEMATERIAL")
                 medida = leitura("QUANTMEDIDAS")
-                medidaprinc = leitura("MEDIDAPRINC")
+                medidaprinc = leitura("MEDIDAPRINCIPAL")
                 If medida = 1 Then
                     CheckBox1.Checked = True
                     TextBox1.Text = leitura("MEDIDA1")
-                    TextBox7.Text = leitura("KD")
+                    TextBox7.Text = leitura("KG")
                 ElseIf medida = 2 Then
                     CheckBox2.Checked = True
                     RadioButton6.Checked = True
@@ -466,24 +412,73 @@
         RemoveHandler Button1.Click, AddressOf Button1_Click
         AddHandler Button1.Click, AddressOf AlterarDadosMaterial
     End Sub
-#End Region 'TESTAR
+#End Region
 
 #Region "Alterar Dados - Grupo de Material"
     Private Sub AlterarDadosGrupo()
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("UPDATE TBGRUPOSMAT SET NOMEGRUPOMAT = '" & TextBox8.Text & "' AND IMAGEM = '" & OpenFileDialog1.FileName & "' WHERE NOMEGRUPOMAT = '" & ListBox2.SelectedIndex & "'")
-            Executar()
-            Fechar()
-            MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            TextBox8.Clear()
-            PictureBox1.Image = Nothing
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        If PictureBox1.Image Is Nothing Then
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT WHERE NOMEGRUPOMAT = '" & ListBox2.SelectedIndex & "'")
+                Ler()
+                While leitura.Read
+                    id = leitura("NOMEGRUPOMAT")
+                End While
+                Fechar()
+                Conectar()
+                Iniciar()
+                Comandar("UPDATE TB_GRUPOSMAT SET NOMEGRUPOMAT = '" & TextBox8.Text & "' WHERE NOMEGRUPOMAT = '" & id & "'")
+                Executar()
+                Fechar()
+                MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                TextBox8.Clear()
+                PictureBox1.Image = Nothing
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+            ListBox2.Items.Clear()
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                Ler()
+                While leitura.Read
+                    ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
+                End While
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        Else
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("UPDATE TB_GRUPOSMAT SET NOMEGRUPOMAT = '" & TextBox8.Text & "' AND CAMINHOIMGTIPO = '" & OpenFileDialog1.FileName & "' WHERE NOMEGRUPOMAT = '" & ListBox2.SelectedIndex & "'")
+                Executar()
+                Fechar()
+                MessageBox.Show("Alterado com sucesso!", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                TextBox8.Clear()
+                PictureBox1.Image = Nothing
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+            ListBox2.Items.Clear()
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                Ler()
+                While leitura.Read
+                    ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
+                End While
+                Fechar()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
     End Sub
-#End Region 'TESTAR
+#End Region 'VERIFICAR
 
 #Region "Alterar Dados - Qualidade"
     Private Sub AlterarDadosQualidade()
@@ -501,7 +496,7 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-#End Region 'TESTAR
+#End Region 'VERIFICAR
 
 #Region "Alterar Dados - Tipo"
     Private Sub AlterarDadosTipo()
@@ -519,7 +514,7 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-#End Region 'TESTAR
+#End Region 'VERIFICAR
 
 #Region "Alterar Dados - Material"
     Private Sub AlterarDadosMaterial()
@@ -688,32 +683,61 @@
                 TextBox8.SelectAll()
                 Fechar()
             Else
-                Try
-                    Fechar()
-                    Conectar()
-                    Iniciar()
-                    Comandar("INSERT INTO TB_GRUPOSMAT (NOMEGRUPOMAT, CAMINHOIMGGRUPOMAT) VALUES ('" & TextBox8.Text & "','" & OpenFileDialog1.FileName & "')")
-                    Executar()
-                    Fechar()
-                    MessageBox.Show("Grupo cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    PictureBox1.Image = Nothing
-                    TextBox8.Clear()
-                    TextBox8.Focus()
-                    ListBox2.Items.Clear()
+                If PictureBox1.Image Is Nothing Then
                     Try
-                        Conectar()
-                        Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
-                        Ler()
-                        While leitura.Read
-                            ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
-                        End While
                         Fechar()
+                        Conectar()
+                        Iniciar()
+                        Comandar("INSERT INTO TB_GRUPOSMAT (NOMEGRUPOMAT, CAMINHOIMGGRUPOMAT) VALUES ('" & TextBox8.Text & "','SEM IMAGEM')")
+                        Executar()
+                        Fechar()
+                        MessageBox.Show("Grupo cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        PictureBox1.Image = Nothing
+                        TextBox8.Clear()
+                        TextBox8.Focus()
+                        ListBox2.Items.Clear()
+                        Try
+                            Conectar()
+                            Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                            Ler()
+                            While leitura.Read
+                                ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
+                            End While
+                            Fechar()
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message)
+                        End Try
                     Catch ex As Exception
                         MessageBox.Show(ex.Message)
                     End Try
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
+                Else
+                    Try
+                        Fechar()
+                        Conectar()
+                        Iniciar()
+                        Comandar("INSERT INTO TB_GRUPOSMAT (NOMEGRUPOMAT, CAMINHOIMGGRUPOMAT) VALUES ('" & TextBox8.Text & "','" & OpenFileDialog1.FileName & "')")
+                        Executar()
+                        Fechar()
+                        MessageBox.Show("Grupo cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        PictureBox1.Image = Nothing
+                        TextBox8.Clear()
+                        TextBox8.Focus()
+                        ListBox2.Items.Clear()
+                        Try
+                            Conectar()
+                            Comandar("SELECT NOMEGRUPOMAT FROM TB_GRUPOSMAT")
+                            Ler()
+                            While leitura.Read
+                                ListBox2.Items.Add(leitura("NOMEGRUPOMAT"))
+                            End While
+                            Fechar()
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message)
+                        End Try
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+                End If
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -734,34 +758,41 @@
                 TextBox8.SelectAll()
                 Fechar()
             Else
-                Try
-                    Fechar()
-                    Conectar()
-                    Iniciar()
-                    Comandar("INSERT INTO TB_QUALIDADES (NOMEGRUPOMAT, NOMEQUALIDADE, CAMINHOIMGQUALIDADE) VALUES ('" & ComboBox4.Text & "','" & TextBox9.Text & "','" & OpenFileDialog1.FileName & "')")
-                    Executar()
-                    Fechar()
-                    MessageBox.Show("Qualidade cadastrada com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    PictureBox2.Image = Nothing
-                    ComboBox4.Text = ""
-                    TextBox9.Clear()
-                    ComboBox4.Focus()
-                    ListBox3.Items.Clear()
+                If PictureBox2.Image Is Nothing Then
                     Try
+                        Fechar()
                         Conectar()
                         Iniciar()
-                        Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES")
-                        Ler()
-                        While leitura.Read
-                            ListBox3.Items.Add(leitura("NOMEQUALIDADE"))
-                        End While
+                        Comandar("INSERT INTO TB_QUALIDADES (NOMEGRUPOMAT, NOMEQUALIDADE, CAMINHOIMGQUALIDADE) VALUES ('" & ComboBox4.Text & "','" & TextBox9.Text & "','SEM IMAGEM')")
+                        Executar()
                         Fechar()
+                        MessageBox.Show("Qualidade cadastrada com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        PictureBox2.Image = Nothing
+                        ComboBox4.Text = "(Selecione...)"
+                        TextBox9.Clear()
+                        ComboBox4.Focus()
+                        ListBox3.Items.Clear()
                     Catch ex As Exception
                         MessageBox.Show(ex.Message)
                     End Try
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
+                Else
+                    Try
+                        Fechar()
+                        Conectar()
+                        Iniciar()
+                        Comandar("INSERT INTO TB_QUALIDADES (NOMEGRUPOMAT, NOMEQUALIDADE, CAMINHOIMGQUALIDADE) VALUES ('" & ComboBox4.Text & "','" & TextBox9.Text & "','" & OpenFileDialog1.FileName & "')")
+                        Executar()
+                        Fechar()
+                        MessageBox.Show("Qualidade cadastrada com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        PictureBox2.Image = Nothing
+                        ComboBox4.Text = "(Selecione...)"
+                        TextBox9.Clear()
+                        ComboBox4.Focus()
+                        ListBox3.Items.Clear()
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+                End If
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -771,49 +802,73 @@
 
 #Region "Botão Verde - Tipo"
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO FROM TB_TIPOS WHERE NOMETIPO = '" & TextBox10.Text & "'")
-            Ler()
-            If leitura.HasRows Then
-                MessageBox.Show("Tipo já cadastrado!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                TextBox8.Focus()
-                TextBox8.SelectAll()
-                Fechar()
-            Else
-                Try
+        If PictureBox3.Image Is Nothing Then
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO FROM TB_TIPOS WHERE NOMETIPO = '" & TextBox10.Text & "'")
+                Ler()
+                If leitura.HasRows Then
+                    MessageBox.Show("Tipo já cadastrado!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    TextBox8.Focus()
+                    TextBox8.SelectAll()
                     Fechar()
-                    Conectar()
-                    Iniciar()
-                    Comandar("INSERT INTO TB_TIPOS (NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO, CAMINHOIMGTIPO) VALUES ('" & ComboBox6.Text & "','" & ComboBox5.Text & "','" & TextBox10.Text & "','" & OpenFileDialog1.FileName & "')")
-                    Executar()
-                    Fechar()
-                    MessageBox.Show("Tipo cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    PictureBox3.Image = Nothing
-                    ComboBox6.Text = ""
-                    ComboBox5.Text = ""
-                    TextBox10.Clear()
-                    ComboBox6.Focus()
-                    ListBox4.Items.Clear()
+                Else
                     Try
+                        Fechar()
                         Conectar()
                         Iniciar()
-                        Comandar("SELECT NOMETIPO FROM TB_TIPOS")
-                        Ler()
-                        While leitura.Read
-                            ListBox4.Items.Add(leitura("NOMETIPO"))
-                        End While
+                        Comandar("INSERT INTO TB_TIPOS (NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO, CAMINHOIMGTIPO) VALUES ('" & ComboBox6.Text & "','" & ComboBox5.Text & "','" & TextBox10.Text & "','SEM IMAGEM')")
+                        Executar()
+                        Fechar()
+                        MessageBox.Show("Tipo cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        PictureBox3.Image = Nothing
+                        ComboBox6.Text = "(Selecione...)"
+                        ComboBox5.Text = "(Selecione...)"
+                        TextBox10.Clear()
+                        ComboBox6.Focus()
+                        ListBox4.Items.Clear()
                     Catch ex As Exception
                         MessageBox.Show(ex.Message)
                     End Try
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        Else
+            Try
+                Conectar()
+                Iniciar()
+                Comandar("SELECT NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO FROM TB_TIPOS WHERE NOMETIPO = '" & TextBox10.Text & "'")
+                Ler()
+                If leitura.HasRows Then
+                    MessageBox.Show("Tipo já cadastrado!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    TextBox8.Focus()
+                    TextBox8.SelectAll()
+                    Fechar()
+                Else
+                    Try
+                        Fechar()
+                        Conectar()
+                        Iniciar()
+                        Comandar("INSERT INTO TB_TIPOS (NOMEGRUPOMAT, NOMEQUALIDADE, NOMETIPO, CAMINHOIMGTIPO) VALUES ('" & ComboBox6.Text & "','" & ComboBox5.Text & "','" & TextBox10.Text & "','" & OpenFileDialog1.FileName & "')")
+                        Executar()
+                        Fechar()
+                        MessageBox.Show("Tipo cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        PictureBox3.Image = Nothing
+                        ComboBox6.Text = "(Selecione...)"
+                        ComboBox5.Text = "(Selecione...)"
+                        TextBox10.Clear()
+                        ComboBox6.Focus()
+                        ListBox4.Items.Clear()
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
     End Sub
 #End Region
 
@@ -835,18 +890,19 @@
                         Fechar()
                         Conectar()
                         Iniciar()
-                        Comandar("INSERT INTO TB_MATERIAIS (NOMEQUALIDADE, NOMEGRUPOMAT, NOMETIPO, NOMEMATERIAL, MEDIDA1, MEDIDAPRINCIPAL, KG) VALUES ('" & ComboBox2.Text & "','" & ComboBox1.Text & "','" & ComboBox3.Text & "','" & TextBox6.Text & "','" & CheckBox1.Text & "', 1, '" & TextBox7.Text & "')")
+                        Comandar("INSERT INTO TB_MATERIAIS (NOMEQUALIDADE, NOMEGRUPOMAT, NOMETIPO, NOMEMATERIAL, QUANTMEDIDAS, MEDIDA1, MEDIDAPRINCIPAL, KG) VALUES ('" & ComboBox2.Text & "','" & ComboBox1.Text & "','" & ComboBox3.Text & "','" & TextBox6.Text & "', 1,'" & TextBox1.Text & "', 1, '" & TextBox7.Text & "')")
                         Executar()
                         Fechar()
                         MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        ComboBox2.Text = ""
-                        ComboBox1.Text = ""
-                        ComboBox3.Text = ""
+                        ComboBox2.Text = "(Selecione...)"
+                        ComboBox1.Text = "(Selecione...)"
+                        ComboBox3.Text = "(Selecione...)"
                         TextBox6.Clear()
                         CheckBox1.Checked = False
                         TextBox7.Clear()
-                        ComboBox2.Focus()
+                        ComboBox1.Focus()
                         ListBox1.Items.Clear()
+                        TextBox1.Clear()
                         Try
                             Conectar()
                             Iniciar()
@@ -870,9 +926,9 @@
                         Executar()
                         Fechar()
                         MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        ComboBox2.Text = ""
-                        ComboBox1.Text = ""
-                        ComboBox3.Text = ""
+                        ComboBox2.Text = "(Selecione...)"
+                        ComboBox1.Text = "(Selecione...)"
+                        ComboBox3.Text = "(Selecione...)"
                         TextBox6.Clear()
                         CheckBox2.Checked = False
                         RadioButton6.Checked = False
@@ -903,9 +959,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox3.Checked = False
                             RadioButton6.Checked = False
@@ -935,9 +991,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox3.Checked = False
                             RadioButton7.Checked = False
@@ -969,9 +1025,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox4.Checked = False
                             RadioButton6.Checked = False
@@ -1001,9 +1057,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox4.Checked = False
                             RadioButton7.Checked = False
@@ -1033,9 +1089,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox4.Checked = False
                             RadioButton8.Checked = False
@@ -1067,9 +1123,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox5.Checked = False
                             RadioButton6.Checked = False
@@ -1099,9 +1155,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox5.Checked = False
                             RadioButton7.Checked = False
@@ -1131,9 +1187,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox5.Checked = False
                             RadioButton8.Checked = False
@@ -1163,9 +1219,9 @@
                             Executar()
                             Fechar()
                             MessageBox.Show("Material cadastrado com sucesso!", "Materiais", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            ComboBox2.Text = ""
-                            ComboBox1.Text = ""
-                            ComboBox3.Text = ""
+                            ComboBox2.Text = "(Selecione...)"
+                            ComboBox1.Text = "(Selecione...)"
+                            ComboBox3.Text = "(Selecione...)"
                             TextBox6.Clear()
                             CheckBox5.Checked = False
                             RadioButton9.Checked = False
@@ -1415,7 +1471,7 @@
         Try
             Conectar()
             Iniciar()
-            Comandar("SELECT NOMETIPO FROM TB_TIPOS WHERE NOMEQUALIDADE = '" & ComboBox6.Text & "'")
+            Comandar("SELECT NOMETIPO FROM TB_TIPOS WHERE NOMEQUALIDADE = '" & ComboBox5.Text & "'")
             Ler()
             While leitura.Read
                 ComboBox5.Items.Add(leitura("NOMETIPO"))
@@ -1450,31 +1506,63 @@
 #Region "Correção de Erros"
     Private Sub ComboBox6_Click(sender As Object, e As EventArgs) Handles ComboBox6.Click
         ListBox4.Items.Clear()
-        ComboBox5.Text = ""
+        ComboBox5.Text = "(Selecione...)"
+        TextBox10.Clear()
+        PictureBox3.Image = Nothing
     End Sub
-#End Region
 
-#Region "Carregar Combo Qualidade - Material"
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+    Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        ComboBox2.Text = "(Selecione...)"
+        ComboBox3.Text = "(Selecione...)"
         ListBox1.Items.Clear()
-        Try
-            Conectar()
-            Iniciar()
-            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox1.Text & "'")
-            Ler()
-            While leitura.Read
-                ComboBox2.Items.Add(leitura("NOMEQUALIDADE"))
-                ListBox1.Items.Add(leitura("NOMEQUALIDADE"))
-            End While
-            Fechar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        TextBox6.Clear()
+        CheckBox1.Checked = False
+        CheckBox2.Checked = False
+        CheckBox3.Checked = False
+        CheckBox4.Checked = False
+        CheckBox5.Checked = False
+        RadioButton6.Checked = False
+        RadioButton7.Checked = False
+        RadioButton8.Checked = False
+        RadioButton9.Checked = False
+        TextBox1.Clear()
+        TextBox2.Clear()
+        TextBox3.Clear()
+        TextBox4.Clear()
+        TextBox5.Clear()
+        TextBox7.Clear()
+    End Sub
+
+    Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        ComboBox3.Text = "(Selecione...)"
+        ListBox1.Items.Clear()
+        TextBox6.Clear()
+        CheckBox1.Checked = False
+        CheckBox2.Checked = False
+        CheckBox3.Checked = False
+        CheckBox4.Checked = False
+        CheckBox5.Checked = False
+        RadioButton6.Checked = False
+        RadioButton7.Checked = False
+        RadioButton8.Checked = False
+        RadioButton9.Checked = False
+        TextBox1.Clear()
+        TextBox2.Clear()
+        TextBox3.Clear()
+        TextBox4.Clear()
+        TextBox5.Clear()
+        TextBox7.Clear()
+    End Sub
+
+    Private Sub ComboBox4_Click(sender As Object, e As EventArgs) Handles ComboBox4.Click
+        TextBox9.Clear()
+        PictureBox1.Image = Nothing
+        ListBox3.Items.Clear()
     End Sub
 #End Region
 
 #Region "Carregar Combo Tipo - Material"
-    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         ListBox1.Items.Clear()
         Try
             Conectar()
@@ -1483,7 +1571,42 @@
             Ler()
             While leitura.Read
                 ComboBox3.Items.Add(leitura("NOMETIPO"))
-                ListBox1.Items.Add(leitura("NOMETIPO"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+#Region "Carregar Lista - Material"
+    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+        ListBox1.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMEMATERIAL FROM TB_MATERIAIS WHERE NOMEGRUPOMAT = '" & ComboBox1.Text & "' AND NOMEQUALIDADE = '" & ComboBox2.Text & "' AND NOMETIPO = '" & ComboBox3.Text & "'")
+            Ler()
+            While leitura.Read
+                ListBox1.Items.Add(leitura("NOMEMATERIAL"))
+            End While
+            Fechar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+#Region "Carregar Combo Qualidade - Material"
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        ListBox1.Items.Clear()
+        Try
+            Conectar()
+            Iniciar()
+            Comandar("SELECT NOMEQUALIDADE FROM TB_QUALIDADES WHERE NOMEGRUPOMAT = '" & ComboBox1.Text & "'")
+            Ler()
+            While leitura.Read
+                ComboBox2.Items.Add(leitura("NOMEQUALIDADE"))
             End While
             Fechar()
         Catch ex As Exception

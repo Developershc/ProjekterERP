@@ -75,7 +75,7 @@ Partial Class frmCadastroEF
         Me.Button2.Location = New System.Drawing.Point(502, 19)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(78, 26)
-        Me.Button2.TabIndex = 16
+        Me.Button2.TabIndex = 2
         Me.Button2.Text = "Localizar"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -85,7 +85,7 @@ Partial Class frmCadastroEF
         Me.Button3.Location = New System.Drawing.Point(555, 129)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(25, 25)
-        Me.Button3.TabIndex = 15
+        Me.Button3.TabIndex = 16
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button1
@@ -95,7 +95,7 @@ Partial Class frmCadastroEF
         Me.Button1.Location = New System.Drawing.Point(524, 129)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(25, 25)
-        Me.Button1.TabIndex = 14
+        Me.Button1.TabIndex = 15
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox7
@@ -103,42 +103,42 @@ Partial Class frmCadastroEF
         Me.TextBox7.Location = New System.Drawing.Point(298, 103)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(282, 20)
-        Me.TextBox7.TabIndex = 13
+        Me.TextBox7.TabIndex = 14
         '
         'TextBox6
         '
         Me.TextBox6.Location = New System.Drawing.Point(370, 77)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(210, 20)
-        Me.TextBox6.TabIndex = 9
+        Me.TextBox6.TabIndex = 10
         '
         'TextBox5
         '
         Me.TextBox5.Location = New System.Drawing.Point(43, 103)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(206, 20)
-        Me.TextBox5.TabIndex = 11
+        Me.TextBox5.TabIndex = 12
         '
         'TextBox4
         '
         Me.TextBox4.Location = New System.Drawing.Point(294, 77)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(36, 20)
-        Me.TextBox4.TabIndex = 7
+        Me.TextBox4.TabIndex = 8
         '
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(55, 77)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(184, 20)
-        Me.TextBox3.TabIndex = 5
+        Me.TextBox3.TabIndex = 6
         '
         'TextBox2
         '
         Me.TextBox2.Location = New System.Drawing.Point(68, 51)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(512, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.TextBox2.TabIndex = 4
         '
         'TextBox1
         '
@@ -153,7 +153,7 @@ Partial Class frmCadastroEF
         Me.Label7.Location = New System.Drawing.Point(255, 106)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(37, 13)
-        Me.Label7.TabIndex = 12
+        Me.Label7.TabIndex = 13
         Me.Label7.Text = "CNPJ:"
         '
         'Label6
@@ -162,7 +162,7 @@ Partial Class frmCadastroEF
         Me.Label6.Location = New System.Drawing.Point(336, 80)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 13)
-        Me.Label6.TabIndex = 8
+        Me.Label6.TabIndex = 9
         Me.Label6.Text = "Tel.:"
         '
         'Label5
@@ -171,7 +171,7 @@ Partial Class frmCadastroEF
         Me.Label5.Location = New System.Drawing.Point(6, 106)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
-        Me.Label5.TabIndex = 10
+        Me.Label5.TabIndex = 11
         Me.Label5.Text = "CEP:"
         '
         'Label4
@@ -180,7 +180,7 @@ Partial Class frmCadastroEF
         Me.Label4.Location = New System.Drawing.Point(245, 80)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(43, 13)
-        Me.Label4.TabIndex = 6
+        Me.Label4.TabIndex = 7
         Me.Label4.Text = "Estado:"
         '
         'Label3
@@ -189,7 +189,7 @@ Partial Class frmCadastroEF
         Me.Label3.Location = New System.Drawing.Point(6, 80)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(43, 13)
-        Me.Label3.TabIndex = 4
+        Me.Label3.TabIndex = 5
         Me.Label3.Text = "Cidade:"
         '
         'Label2
@@ -198,7 +198,7 @@ Partial Class frmCadastroEF
         Me.Label2.Location = New System.Drawing.Point(6, 54)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
-        Me.Label2.TabIndex = 2
+        Me.Label2.TabIndex = 3
         Me.Label2.Text = "Endereço:"
         '
         'Label1
@@ -218,7 +218,7 @@ Partial Class frmCadastroEF
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCadastroEF"
-        Me.Text = "Cadastro da empresa"
+        Me.Text = "frmCadastroEF"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

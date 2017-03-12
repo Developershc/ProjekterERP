@@ -5,6 +5,7 @@ Module ConexaoBanco
     Public conexao As New SqlConnection
     Public comando As New SqlCommand
     Public leitura As SqlDataReader
+    Public ds As New DataSet
 
     Public Sub Executar()
         comando.ExecuteNonQuery()

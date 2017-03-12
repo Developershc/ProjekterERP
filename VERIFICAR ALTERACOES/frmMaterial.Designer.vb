@@ -332,6 +332,7 @@ Partial Class frmMaterial
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(209, 21)
         Me.ComboBox4.TabIndex = 1
+        Me.ComboBox4.Text = "(Selecione...)"
         '
         'Label21
         '
@@ -452,6 +453,7 @@ Partial Class frmMaterial
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(209, 21)
         Me.ComboBox5.TabIndex = 3
+        Me.ComboBox5.Text = "(Selecione...)"
         '
         'Label25
         '
@@ -469,6 +471,7 @@ Partial Class frmMaterial
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(209, 21)
         Me.ComboBox6.TabIndex = 1
+        Me.ComboBox6.Text = "(Selecione...)"
         '
         'Label26
         '
@@ -846,6 +849,7 @@ Partial Class frmMaterial
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(209, 21)
         Me.ComboBox3.TabIndex = 5
+        Me.ComboBox3.Text = "(Selecione...)"
         '
         'Label3
         '
@@ -863,6 +867,7 @@ Partial Class frmMaterial
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(209, 21)
         Me.ComboBox2.TabIndex = 3
+        Me.ComboBox2.Text = "(Selecione...)"
         '
         'Label2
         '
@@ -880,6 +885,7 @@ Partial Class frmMaterial
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(209, 21)
         Me.ComboBox1.TabIndex = 1
+        Me.ComboBox1.Text = "(Selecione...)"
         '
         'Label1
         '
